@@ -1,0 +1,11 @@
+<p>dashboard works!</p>
+<div class="dashboard-container">
+  <h1>Bienvenido, {{ username() }}</h1>
+
+  <p>Tus permisos:</p>
+  <ul>
+    <li *ngFor="let p of authorities()">{{ p }}</li>
+  </ul>
+
+  <button (click)="logout()">Cerrar sesión</button>
+</div>
