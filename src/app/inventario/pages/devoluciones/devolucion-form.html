@@ -1,0 +1,11 @@
+<div class="p-4">
+  <h3>Registrar Devolución</h3>
+  <form (ngSubmit)="submit()" [formGroup]="form">
+    <div class="mb-2"><label>Venta ID</label><input formControlName="ventaId" class="form-control" /></div>
+    <div class="mb-2"><label>Producto ID</label><input formControlName="productoId" class="form-control" /></div>
+    <div class="mb-2"><label>Lote ID</label><input formControlName="loteId" class="form-control" /></div>
+    <div class="mb-2"><label>Cantidad</label><input type="number" formControlName="cantidad" class="form-control" /></div>
+    <div class="mb-2"><label>Motivo</label><input formControlName="motivo" class="form-control" /></div>
+    <button class="btn btn-primary" type="submit">Registrar devolución</button>
+  </form>
+</div>

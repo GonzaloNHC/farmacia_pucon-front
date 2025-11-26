@@ -1,24 +1,27 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Auth } from '../../auth/auth';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-dashboard',
   standalone: true,
+  selector: 'app-dashboard',
   imports: [CommonModule],
-  templateUrl: './dashboard.html',
-  styleUrls: ['./dashboard.css']
+  templateUrl: './dashboard.html'
 })
 export class Dashboard {
-  
-  private auth = inject(Auth);
+
   private router = inject(Router);
 
-  username = this.auth.username;
-  authorities = this.auth.userAuthorities;
+  username = () => localStorage.getItem('username') ?? '';
+  authorities = () => (localStorage.getItem('authorities')?.split(',') ?? []);
 
   logout() {
-    this.auth.logout();
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
+  // 🔹 Nueva función
+  goInventario() {
+    this.router.navigate(['/inventario']);
   }
 }

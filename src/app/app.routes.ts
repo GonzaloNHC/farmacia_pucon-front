@@ -20,6 +20,38 @@ export const routes: Routes = [
         .then(m => m.Dashboard)
   },
 
+  // ===== INVENTARIO (PROTEGIDO TAMBIÉN) =====
+  {
+    path: 'inventario',
+    canActivate: [authGuard],
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./inventario/pages/inventario-list')
+            .then(m => m.InventarioListComponent)
+      },
+      {
+        path: 'lotes/:id',
+        loadComponent: () =>
+          import('./inventario/pages/lotes/lotes-list')
+            .then(m => m.LotesList)
+      },
+      {
+        path: 'ingreso/crear',
+        loadComponent: () =>
+          import('./inventario/pages/ingresos/crear-ingreso')
+            .then(m => m.CrearIngreso)
+      },
+      {
+        path: 'devoluciones/crear',
+        loadComponent: () =>
+          import('./inventario/pages/devoluciones/devolucion-form')
+            .then(m => m.DevolucionForm)
+      }
+    ]
+  },
+
   // ===== DEFAULT =====
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 
