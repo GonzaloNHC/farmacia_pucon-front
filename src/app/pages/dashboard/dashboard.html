@@ -1,4 +1,5 @@
 <p>dashboard works!</p>
+
 <div class="dashboard-container">
   <h1>Bienvenido, {{ username() }}</h1>
 
@@ -6,6 +7,11 @@
   <ul>
     <li *ngFor="let p of authorities()">{{ p }}</li>
   </ul>
+
+  <!-- 🔹 Botón nuevo para ir al Inventario -->
+  <button (click)="goInventario()">Ir al Inventario</button>
+
+  <br><br>
 
   <button (click)="logout()">Cerrar sesión</button>
 </div>

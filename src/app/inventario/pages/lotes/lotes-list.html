@@ -1,0 +1,17 @@
+<div class="p-4">
+  <h3>Lotes</h3>
+  <div *ngIf="loading">Cargando lotes...</div>
+  <table class="table table-sm" *ngIf="!loading">
+    <thead><tr><th>Código</th><th>Vencimiento</th><th>Disponible</th><th>Acciones</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let l of lotes">
+        <td>{{ l.codigoLote }}</td>
+        <td>{{ l.fechaVencimiento }}</td>
+        <td>{{ l.cantidadDisponible }}</td>
+        <td>
+          <a [routerLink]="['/lotes','detalle', l.id]" class="btn btn-sm btn-outline-secondary">Detalle</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

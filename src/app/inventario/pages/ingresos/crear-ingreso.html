@@ -1,0 +1,14 @@
+<div class="p-4">
+  <h3>Registrar Ingreso</h3>
+  <form (ngSubmit)="submit()" [formGroup]="form">
+    <div class="mb-3">
+      <label>Observación</label>
+      <input formControlName="observacion" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label>Detalles (json)</label>
+      <textarea class="form-control" [value]="form.value.detalles | json" readonly rows="4"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Registrar</button>
+  </form>
+</div>
